@@ -115,8 +115,12 @@ Affirmer's express Statement of Purpose.
 
 For more information, please see
 <http://creativecommons.org/publicdomain/zero/1.0/>
+`.trim()
 
+export const viteCreateLicenseText = `
 ---------------------------------------
+
+# Forked from create-vite:
 
 ## create-vite
 License: MIT
@@ -143,5 +147,4 @@ Repository: git+https://github.com/vitejs/vite.git
 > AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 > LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 > OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-> SOFTWARE.
-`.trim()
+> SOFTWARE.`
