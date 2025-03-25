@@ -15,7 +15,6 @@ import {
   isEmpty,
   isValidPackageName,
   pkgFromUserAgent,
-  setupReactSwc,
   toValidPackageName,
 } from './utils'
 
@@ -157,13 +156,6 @@ async function init() {
   const root = path.join(cwd, targetDir)
   fs.mkdirSync(root, { recursive: true })
 
-  // determine template
-  let isReactSwc = false
-  if (template.includes('-swc')) {
-    isReactSwc = true
-    template = template.replace('-swc', '')
-  }
-
   const pkgManager = pkgInfo ? pkgInfo.name : 'npm'
 
   prompts.log.step(`Scaffolding project in ${root}...`)
@@ -196,10 +188,6 @@ async function init() {
   pkg.name = packageName
 
   write('package.json', `${JSON.stringify(pkg, null, 2)}\n`)
-
-  if (isReactSwc) {
-    setupReactSwc(root, template.endsWith('-ts'))
-  }
 
   let doneMessage = ''
   const cdProjectName = path.relative(cwd, root)

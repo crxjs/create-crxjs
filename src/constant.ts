@@ -7,8 +7,6 @@ const {
   blue,
   cyan,
   green,
-  magenta,
-  red,
   yellow,
 } = colors
 
@@ -58,51 +56,7 @@ export const FRAMEWORKS: Framework[] = [
         color: blue,
       },
       {
-        name: 'react-swc-ts',
-        display: 'TypeScript + SWC',
-        color: blue,
-      },
-      {
         name: 'react',
-        display: 'JavaScript',
-        color: yellow,
-      },
-      {
-        name: 'react-swc',
-        display: 'JavaScript + SWC',
-        color: yellow,
-      },
-    ],
-  },
-  {
-    name: 'preact',
-    display: 'Preact',
-    color: magenta,
-    variants: [
-      {
-        name: 'preact-ts',
-        display: 'TypeScript',
-        color: blue,
-      },
-      {
-        name: 'preact',
-        display: 'JavaScript',
-        color: yellow,
-      },
-    ],
-  },
-  {
-    name: 'svelte',
-    display: 'Svelte',
-    color: red,
-    variants: [
-      {
-        name: 'svelte-ts',
-        display: 'TypeScript',
-        color: blue,
-      },
-      {
-        name: 'svelte',
         display: 'JavaScript',
         color: yellow,
       },
@@ -145,7 +99,4 @@ Available templates:
 ${yellow    ('vanilla-ts     vanilla'  )}
 ${green     ('vue-ts         vue'      )}
 ${cyan      ('react-ts       react'    )}
-${cyan      ('react-swc-ts   react-swc')}
-${magenta   ('preact-ts      preact'   )}
-${red       ('svelte-ts      svelte'   )}
 ${blue      ('solid-ts       solid'    )}`
