@@ -3,7 +3,7 @@ import type { Dependency } from 'rollup-plugin-license'
 import fs from 'node:fs'
 import colors from 'picocolors'
 import license from 'rollup-plugin-license'
-import { viteCreateLicenseText } from './constant'
+import { coreLicense, viteCreateLicenseText } from './constant'
 
 export default function licensePlugin(
   licenseFilePath: string,
@@ -15,10 +15,6 @@ export default function licensePlugin(
     thirdParty(dependencies) {
       // https://github.com/rollup/rollup/blob/master/build-plugins/generate-license-file.js
       // MIT Licensed https://github.com/rollup/rollup/blob/master/LICENSE-CORE.md
-      const coreLicense = fs.readFileSync(
-        new URL('../LICENSE', import.meta.url),
-      )
-
       const deps = sortDependencies(dependencies)
       const licenses = sortLicenses(
         new Set(
@@ -104,7 +100,7 @@ export default function licensePlugin(
         = `# ${licenseTitle}\n`
           + `${packageName} is released under the MIT license:\n\n${
             coreLicense
-          }\n${
+          }\n\n${
             additionalSection || ''
           }# Licenses of bundled dependencies\n`
           + `The published ${packageName} artifact additionally contains code with the following licenses:\n`
