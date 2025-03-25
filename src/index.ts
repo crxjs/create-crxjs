@@ -6,12 +6,14 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import * as prompts from '@clack/prompts'
 import mri from 'mri'
+import { dim, green } from 'picocolors'
 import { defaultTargetDir, renameFiles } from './config'
 import { FRAMEWORKS, HELP_MESSAGE, TEMPLATES } from './constant'
 import {
   copy,
   emptyDir,
   formatTargetDir,
+  generateBanner,
   isEmpty,
   isValidPackageName,
   pkgFromUserAgent,
@@ -31,6 +33,7 @@ const argv = mri<{
 const cwd = process.cwd()
 
 async function init() {
+  prompts.intro(generateBanner('create-crxjs - quickly start a chrome extension'))
   const argTargetDir = argv._[0]
     ? formatTargetDir(String(argv._[0]))
     : undefined
@@ -207,7 +210,9 @@ async function init() {
       doneMessage += `\n  ${pkgManager} run dev`
       break
   }
-  prompts.outro(doneMessage)
+  prompts.note(doneMessage, dim('Getting Started'))
+
+  prompts.outro(green(` 🎉 You're all set!`))
 }
 
 init().catch((e) => {
