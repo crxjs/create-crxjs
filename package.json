@@ -14,12 +14,10 @@
     "url": "https://github.com/crxjs/create-crxjs/issues"
   },
   "bin": {
-    "create-vite": "index.js",
-    "cva": "index.js"
+    "create-crxjs": "dist/index.mjs"
   },
   "files": [
-    "dist",
-    "index.js",
+    "dist/index.mjs",
     "template-*"
   ],
   "engines": {
