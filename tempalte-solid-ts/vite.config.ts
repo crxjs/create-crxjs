@@ -1,11 +1,11 @@
 import { crx } from '@crxjs/vite-plugin'
-import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import solid from 'vite-plugin-solid'
 import manifest from './manifest.config.ts'
 
 export default defineConfig({
   plugins: [
-    react(),
+    solid(),
     crx({ manifest }),
   ],
   legacy: {

@@ -4,7 +4,6 @@ export default antfu({
   formatters: true,
   vue: true,
   react: true,
-  // svelte: true,
   solid: true,
   rules: {
     'no-console': 'off',
