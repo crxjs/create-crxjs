@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+# React + Vite + CRXJS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template helps you quickly start developing Chrome extensions with React, TypeScript and Vite. It includes the CRXJS Vite plugin for seamless Chrome extension development.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React with TypeScript
+- TypeScript support
+- Vite build tool
+- CRXJS Vite plugin integration
+- Chrome extension manifest configuration
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Install dependencies:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Start development server:
 
-```js
-import reactDom from 'eslint-plugin-react-dom'
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+3. Build for production:
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+- `src/popup/` - Extension popup UI
+- `src/content/` - Content scripts
+- `manifest.config.ts` - Chrome extension manifest configuration
+
+## Documentation
+
+- [React Documentation](https://reactjs.org/)
+- [Vite Documentation](https://vitejs.dev/)
+- [CRXJS Documentation](https://crxjs.dev/vite-plugin)
+
+## Chrome Extension Development Notes
+
+- Use `manifest.config.ts` to configure your extension
+- The CRXJS plugin automatically handles manifest generation
+- Content scripts should be placed in `src/content/`
+- Popup UI should be placed in `src/popup/`

@@ -6,6 +6,11 @@ export default defineManifest({
   name: pkg.name,
   version: pkg.version,
   action: {
+    default_icon: {
+      16: 'public/logo.png',
+      48: 'public/logo.png',
+      128: 'public/logo.png',
+    },
     default_popup: 'src/popup/index.html',
   },
   content_scripts: [{

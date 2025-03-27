@@ -19,7 +19,7 @@ const toggle = () => show.value = !show.value
       class="toggle-button"
       @click="toggle()"
     >
-      <img :src="Logo" alt="Vue logo" class="button-icon">
+      <img :src="Logo" alt="CRXJS logo" class="button-icon">
     </button>
   </div>
 </template>

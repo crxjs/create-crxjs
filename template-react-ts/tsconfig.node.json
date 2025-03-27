@@ -6,7 +6,6 @@
     "moduleDetection": "force",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "types": ["vite/client"],
     "allowImportingTsExtensions": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,

@@ -7,5 +7,6 @@ export default antfu({
   solid: true,
   rules: {
     'no-console': 'off',
+    'solid/no-react-specific-props': 'off',
   },
 })
