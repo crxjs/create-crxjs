@@ -1,7 +1,8 @@
+import crxLogo from '@/assets/crx.svg'
+import solidLogo from '@/assets/solid.svg'
+import viteLogo from '@/assets/vite.svg'
 import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
 import './App.css'
-import viteLogo from '/vite.svg'
 
 function App() {
   const [count, setCount] = createSignal(0)
@@ -15,8 +16,11 @@ function App() {
         <a href="https://solidjs.com" target="_blank">
           <img src={solidLogo} class="logo solid" alt="Solid logo" />
         </a>
+        <a href="https://crxjs.dev/vite-plugin" target="_blank">
+          <img src={crxLogo} class="logo crx" alt="crx logo" />
+        </a>
       </div>
-      <h1>Vite + Solid</h1>
+      <h1>Vite + Solid + CRXJS</h1>
       <div class="card">
         <button onClick={() => setCount(count => count + 1)}>
           count is
@@ -26,13 +30,13 @@ function App() {
         <p>
           Edit
           {' '}
-          <code>src/App.jsx</code>
+          <code>src/popup/App.jsx</code>
           {' '}
           and save to test HMR
         </p>
       </div>
       <p class="read-the-docs">
-        Click on the Vite and Solid logos to learn more
+        Click on the Vite, Solid and CRXJS logos to learn more
       </p>
     </>
   )

@@ -17,6 +17,9 @@
 .logo.solid:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.logo.crx:hover {
+  filter: drop-shadow(0 0 2em #f2bae4aa);
+}
 
 .card {
   padding: 2em;

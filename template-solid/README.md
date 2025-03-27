@@ -1,28 +1,49 @@
-## Usage
+# Solid + Vite + CRXJS
+
+This template helps you quickly start developing Chrome extensions using Solid, and Vite. It includes the CRXJS Vite plugin for seamless Chrome extension development.
+
+## Features
+
+- Solid
+- Vite build tool
+- CRXJS Vite plugin integration
+- Chrome extension manifest configuration
+
+## Quick Start
+
+1. Install dependencies:
 
 ```bash
-$ npm install # or pnpm install or yarn install
+npm install
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+2. Start the development server:
 
-## Available Scripts
+```bash
+npm run dev
+```
 
-In the project directory, you can run:
+3. Build the production version:
 
-### `npm run dev`
+```bash
+npm run build
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+## Project Structure
 
-### `npm run build`
+- `src/popup/` - Extension popup UI
+- `src/content/` - Content scripts
+- `manifest.config.js` - Chrome extension manifest configuration
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+## Documentation
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- [Solid Documentation](https://solidjs.com/docs)
+- [Vite Documentation](https://vitejs.dev/)
+- [CRXJS Documentation](https://crxjs.dev/vite-plugin)
 
-## Deployment
+## Chrome Extension Development Notes
 
-Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
+- Use `manifest.config.js` to configure your extension
+- CRXJS plugin automatically handles manifest generation
+- Content scripts should be placed in `src/content/`
+- Popup UI should be placed in `src/popup/`
