@@ -26,7 +26,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  min-width: 450px;
   min-height: 100vh;
 }
 
@@ -53,6 +53,9 @@ h1 {
 }
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+.logo.crx:hover {
+  filter: drop-shadow(0 0 2em #f2bae4aa);
 }
 
 .card {

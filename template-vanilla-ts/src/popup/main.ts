@@ -1,24 +1,28 @@
+import crxLogo from '@/assets/crx.svg'
+import tsLogo from '@/assets/ts.svg'
+import viteLogo from '@/assets/vite.svg'
 import { setupCounter } from './counter.ts'
-import typescriptLogo from './typescript.svg'
 import './style.css'
-import viteLogo from '/vite.svg'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector('#app')!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
     </a>
     <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
+      <img src="${tsLogo}" class="logo vanilla" alt="TypeScript logo" />
     </a>
-    <h1>Vite + TypeScript</h1>
+    <a href="https://crxjs.dev/vite-plugin" target="_blank">
+      <img src="${crxLogo}" class="logo crx" alt="CRXJS logo" />
+    </a>
+    <h1>Hello CRXJS!</h1>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
     <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
+      Click on the CRXJS logo to learn more
     </p>
   </div>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupCounter(document.querySelector('#counter')!)

@@ -1,1 +1,1 @@
-console.log('this is content script')
+console.log('[CRXJS] Hello world from content script!')

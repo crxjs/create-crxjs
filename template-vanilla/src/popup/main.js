@@ -1,7 +1,8 @@
+import crxLogo from '@/assets/crx.svg'
+import jsLogo from '@/assets/js.svg'
+import viteLogo from '@/assets/vite.svg'
 import { setupCounter } from './counter.js'
-import javascriptLogo from './javascript.svg'
 import './style.css'
-import viteLogo from '/vite.svg'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -9,14 +10,17 @@ document.querySelector('#app').innerHTML = `
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
     </a>
     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
+      <img src="${jsLogo}" class="logo vanilla" alt="JavaScript logo" />
     </a>
-    <h1>Hello Vite!</h1>
+    <a href="https://crxjs.dev/vite-plugin" target="_blank">
+      <img src="${crxLogo}" class="logo crx" alt="CRXJS logo" />
+    </a>
+    <h1>Hello CRXJS!</h1>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
     <p class="read-the-docs">
-      Click on the Vite logo to learn more
+      Click on the CRXJS logo to learn more
     </p>
   </div>
 `
