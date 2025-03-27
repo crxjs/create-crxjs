@@ -54,6 +54,7 @@ const toggle = () => show.value = !show.value
 
 .toggle-button {
   display: flex;
+  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 9999px;
