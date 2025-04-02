@@ -13,7 +13,7 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "types": ["vite/client"],
+    "types": ["vite/client", "chrome"],
     "allowImportingTsExtensions": true,
     "strict": true,
     "noFallthroughCasesInSwitch": true,
