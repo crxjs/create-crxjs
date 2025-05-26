@@ -13,7 +13,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "^2.0.0-beta.32",
+    "@crxjs/vite-plugin": "^2.0.0-beta.33",
     "@types/chrome": "^0.0.313",
     "@types/node": "^22.13.14",
     "@types/react": "^19.0.10",

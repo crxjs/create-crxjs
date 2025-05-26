@@ -8,7 +8,7 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "^2.0.0-beta.32",
+    "@crxjs/vite-plugin": "^2.0.0-beta.33",
     "@types/chrome": "^0.0.313",
     "vite": "^6.2.0",
     "vite-plugin-zip-pack": "^1.2.4"

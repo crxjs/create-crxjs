@@ -15,9 +15,6 @@ export default defineConfig({
     crx({ manifest }),
     zip({ outDir: 'release', outFileName: `crx-${name}-${version}.zip` }),
   ],
-  legacy: {
-    skipWebSocketTokenCheck: true,
-  },
   server: {
     cors: {
       origin: [
