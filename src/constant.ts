@@ -79,6 +79,23 @@ export const FRAMEWORKS: Framework[] = [
       },
     ],
   },
+  {
+    name: 'svelte',
+    display: 'Svelte',
+    color: yellow,
+    variants: [
+      {
+        name: 'svelte-ts',
+        display: 'TypeScript',
+        color: blue,
+      },
+      {
+        name: 'svelte',
+        display: 'JavaScript',
+        color: yellow,
+      },
+    ],
+  },
 ]
 
 export const TEMPLATES = FRAMEWORKS.map(f => f.variants.map(v => v.name)).reduce(

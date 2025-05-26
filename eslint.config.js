@@ -5,6 +5,7 @@ export default antfu({
   vue: true,
   react: true,
   solid: true,
+  svelte: true,
   rules: {
     'no-console': 'off',
     'solid/no-react-specific-props': 'off',
