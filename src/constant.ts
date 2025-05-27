@@ -1,7 +1,7 @@
 /* eslint-disable style/space-in-parens */
 /* eslint-disable style/no-multi-spaces */
 import type { Framework } from './types'
-import colors from 'picocolors'
+import colors, { red } from 'picocolors'
 
 const {
   blue,
@@ -82,7 +82,7 @@ export const FRAMEWORKS: Framework[] = [
   {
     name: 'svelte',
     display: 'Svelte',
-    color: yellow,
+    color: red,
     variants: [
       {
         name: 'svelte-ts',
@@ -116,4 +116,5 @@ Available templates:
 ${yellow    ('vanilla-ts     vanilla'  )}
 ${green     ('vue-ts         vue'      )}
 ${cyan      ('react-ts       react'    )}
-${blue      ('solid-ts       solid'    )}`
+${blue      ('solid-ts       solid'    )}
+${red       ('svelte-ts      svelte'   )}`
