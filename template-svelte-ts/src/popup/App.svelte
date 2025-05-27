@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import CrxLogo from '@/assets/crx.svg'
   import svelteLogo from '@/assets/svelte.svg'
   import viteLogo from '@/assets/vite.svg'

@@ -1,23 +1,21 @@
-<script lang='ts'>
-  import type { Writable } from 'svelte/store'
+<script>
   import Logo from '@/assets/crx.svg'
-  import { writable } from 'svelte/store'
 
-  const show: Writable<boolean> = writable(false)
+  let show = $state(false)
 </script>
 
 <div class='popup-container'>
   <div
     class='popup-content'
-    class:opacity-100={$show}
-    class:opacity-0={!$show}
-    style="display: {$show ? 'block' : 'none'}"
+    class:opacity-100={show}
+    class:opacity-0={!show}
+    style="display: {show ? 'block' : 'none'}"
   >
     <h1>HELLO CRXJS</h1>
   </div>
   <button
     class='toggle-button'
-    on:click={() => $show = !$show}
+    onclick={() => show = !show}
   >
     <img src={Logo} alt='CRXJS logo' class='button-icon'>
   </button>

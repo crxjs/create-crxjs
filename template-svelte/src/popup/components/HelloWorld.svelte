@@ -1,15 +1,13 @@
 <script>
-  import { writable } from 'svelte/store'
-
-  export let msg
-  const count = writable(0)
+  const { msg } = $props()
+  let count = $state(0)
 </script>
 
 <h1>{msg}</h1>
 
 <div class='card'>
-  <button type='button' on:click={() => $count++}>
-    count is {$count}
+  <button type='button' onclick={() => count++}>
+    count is {count}
   </button>
   <p>
     Edit
