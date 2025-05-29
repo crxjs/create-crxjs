@@ -2,7 +2,7 @@
   import CrxLogo from '@/assets/crx.svg'
   import svelteLogo from '@/assets/svelte.svg'
   import viteLogo from '@/assets/vite.svg'
-  import HelloWorld from './components/HelloWorld.svelte'
+  import HelloWorld from '@/components/HelloWorld.svelte'
 </script>
 
 <div>

@@ -15,7 +15,7 @@ export default function HelloWorld(props) {
         </button>
         <p>
           Edit
-          <code>src/popup/components/HelloWorld.jsx</code>
+          <code>src/components/HelloWorld.jsx</code>
           {' '}
           to test HMR
         </p>

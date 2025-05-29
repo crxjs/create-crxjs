@@ -11,7 +11,7 @@
   </button>
   <p>
     Edit
-    <code>src/popup/components/HelloWorld.svelte</code> to test HMR
+    <code>src/components/HelloWorld.svelte</code> to test HMR
   </p>
 </div>
 
