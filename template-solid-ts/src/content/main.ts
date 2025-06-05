@@ -1,6 +1,6 @@
 import { createComponent } from 'solid-js'
 import { render } from 'solid-js/web'
-import App from './views/App.jsx'
+import App from './views/App.tsx'
 
 console.log('[CRXJS] Hello world from content script!')
 
