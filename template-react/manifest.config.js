@@ -10,7 +10,7 @@ export default defineManifest({
     default_popup: 'src/popup/index.html',
   },
   content_scripts: [{
-    js: ['src/content/main.js'],
+    js: ['src/content/main.jsx'],
     matches: ['https://*/*'],
   }],
 })
