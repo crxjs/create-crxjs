@@ -18,13 +18,15 @@ This template helps you quickly start developing Chrome extensions using Solid, 
 npm install
 ```
 
-2. Start the development server:
+2. Start development server:
 
 ```bash
 npm run dev
 ```
 
-3. Build the production version:
+3. Open Chrome and navigate to `chrome://extensions/`, enable "Developer mode", and load the unpacked extension from the `dist` directory.
+
+4. Build for production:
 
 ```bash
 npm run build
