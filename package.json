@@ -1,7 +1,7 @@
 {
   "name": "create-crxjs",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "packageManager": "pnpm@10.6.5",
   "author": "FliPPeDround <flippedround@qq.com>",
   "license": "MIT",
