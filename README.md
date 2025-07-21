@@ -1,24 +1,5 @@
 <h1>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 30">
-  <text x="0" y="25" font-family="Consolas, Monaco, monospace" font-size="14" fill="#58595b">
-    >_ CREATE CRXJS
-    <tspan id="cursor">▌</tspan>
-  </text>
-
-  <defs>
-    <style>
-      #cursor {
-        animation: blink 1s infinite;
-        opacity: 1;
-      }
-      @keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 0; }
-        100% { opacity: 1; }
-      }
-    </style>
-  </defs>
-</svg>
+<img src="blink.svg" alt="logo">
 
 <br />
 
@@ -30,7 +11,7 @@
 ### 📦 Usage
 
 ```shell
-    npm create uni@latest
+npm create uni@latest
 ```
 
 > [!IMPORTANT] > `@latest` MUST NOT be omitted, otherwise `npm` may resolve to a cached and outdated version of the package.
