@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 30">
-  <text x="0" y="25" font-family="Consolas, Monaco, monospace" font-size="14" fill="#58595b">
-    >_ CREATE CRXJS
-    <tspan id="cursor">▌</tspan>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 18">
+  <text x="0" font-family="Consolas, Monaco, monospace" font-size="14" fill="#58595b">
+    <tspan y="8">>_</tspan> 
+    <tspan y="10">CREATE CRXJS</tspan>
+    <tspan y="7" id="cursor">▌</tspan>
   </text>
   
   <defs>

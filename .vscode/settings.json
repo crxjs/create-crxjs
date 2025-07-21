@@ -36,5 +36,6 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+  "svg.preview.background": "black"
 }
