@@ -1,7 +1,7 @@
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
-  formatters: true,
+  formatters: false,
   vue: true,
   react: true,
   solid: true,
