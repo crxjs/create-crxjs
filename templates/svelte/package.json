@@ -1,5 +1,5 @@
 {
-  "name": "template-solid",
+  "name": "template-svelte",
   "type": "module",
   "version": "1.0.0",
   "private": true,
@@ -8,13 +8,13 @@
     "build": "vite build"
   },
   "dependencies": {
-    "solid-js": "^1.9.5"
+    "svelte": "^5.36.12"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "^2.0.0",
-    "@types/chrome": "^0.0.313",
-    "vite": "^6.2.0",
-    "vite-plugin-solid": "^2.11.2",
+    "@crxjs/vite-plugin": "^2.0.3",
+    "@sveltejs/vite-plugin-svelte": "^6.1.0",
+    "@types/chrome": "^0.1.1",
+    "vite": "^7.0.5",
     "vite-plugin-zip-pack": "^1.2.4"
   }
 }

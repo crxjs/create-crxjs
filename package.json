@@ -18,7 +18,7 @@
   },
   "files": [
     "dist/index.mjs",
-    "template"
+    "templates"
   ],
   "engines": {
     "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
@@ -32,7 +32,7 @@
     "test": "vitest",
     "lint:fix": "eslint --fix",
     "release": "bumpp",
-    "up": "cd template && taze -r",
+    "up": "cd templates && taze -r",
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
