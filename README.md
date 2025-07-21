@@ -13,7 +13,8 @@
 npm create uni@latest
 ```
 
-> [!IMPORTANT] > `@latest` MUST NOT be omitted, otherwise `npm` may resolve to a cached and outdated version of the package.
+> [!IMPORTANT]
+> `@latest` MUST NOT be omitted, otherwise `npm` may resolve to a cached and outdated version of the package.
 
 ## Templates
 
