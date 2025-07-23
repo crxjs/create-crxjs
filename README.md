@@ -10,7 +10,7 @@
 ### 📦 Usage
 
 ```shell
-npm create create-crxjs@latest
+npm create crxjs@latest
 ```
 
 > [!IMPORTANT]
