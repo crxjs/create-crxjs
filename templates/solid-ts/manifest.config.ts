@@ -18,4 +18,11 @@ export default defineManifest({
     js: ['src/content/main.ts'],
     matches: ['https://*/*'],
   }],
+  permissions: [
+    'sidePanel',
+    'contentSettings',
+  ],
+  side_panel: {
+    default_path: 'src/sidepanel/index.html',
+  },
 })

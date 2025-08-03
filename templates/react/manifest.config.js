@@ -8,6 +8,10 @@ export default defineManifest({
   icons: {
     48: 'public/logo.png',
   },
+  permissions: [
+    'sidePanel',
+    'contentSettings',
+  ],
   action: {
     default_icon: {
       48: 'public/logo.png',
@@ -18,4 +22,7 @@ export default defineManifest({
     js: ['src/content/main.jsx'],
     matches: ['https://*/*'],
   }],
+  side_panel: {
+    default_path: 'src/sidepanel/index.html',
+  },
 })
