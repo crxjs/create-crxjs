@@ -27,7 +27,7 @@
      * Disable this if you'd like to use dynamic types.
      */
     "checkJs": true,
-    "types": ["vite/client", "chrome", "svelte"]
+    "types": ["vite/client", "@crxjs/vite-plugin/client", "chrome", "svelte"]
   },
   /**
    * Use global.d.ts instead of compilerOptions.types
