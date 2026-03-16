@@ -8,17 +8,17 @@
     "build": "vue-tsc -b && vite build"
   },
   "dependencies": {
-    "vue": "^3.5.17"
+    "vue": "^3.5.30"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "^2.0.3",
-    "@types/chrome": "^0.1.1",
-    "@types/node": "^24.0.15",
-    "@vitejs/plugin-vue": "^6.0.0",
-    "@vue/tsconfig": "^0.7.0",
-    "typescript": "~5.8.3",
-    "vite": "^7.0.5",
+    "@crxjs/vite-plugin": "^2.4.0",
+    "@types/chrome": "^0.1.37",
+    "@types/node": "^25.5.0",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vue/tsconfig": "^0.9.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.0",
     "vite-plugin-zip-pack": "^1.2.4",
-    "vue-tsc": "^3.0.3"
+    "vue-tsc": "^3.2.5"
   }
 }

@@ -9,15 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "solid-js": "^1.9.7"
+    "solid-js": "^1.9.11"
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "^2.0.3",
-    "@types/chrome": "^0.1.1",
-    "@types/node": "^24.0.15",
-    "typescript": "~5.8.3",
-    "vite": "^7.0.5",
-    "vite-plugin-solid": "^2.11.7",
+    "@crxjs/vite-plugin": "^2.4.0",
+    "@types/chrome": "^0.1.37",
+    "@types/node": "^25.5.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.0",
+    "vite-plugin-solid": "^2.11.11",
     "vite-plugin-zip-pack": "^1.2.4"
   }
 }
