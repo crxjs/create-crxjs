@@ -10,4 +10,5 @@ export default antfu({
     'no-console': 'off',
     'solid/no-react-specific-props': 'off',
   },
+
 })
