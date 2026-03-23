@@ -33,7 +33,7 @@ npm create crxjs@latest
 > [!NOTE]
 > We welcome contributions from the community! [Submit your templates to `src/constant.ts`](src/constant.ts#L13)
 
-- [vitesse-crxjs](https://github.com/flippedround/vitesse-crxjs)
+- [vitesse-crxjs](https://github.com/flippedround/vitesse-crxjs) - Vitesse-Style Browser Extension Starter Template
 
 ## Credits
 
