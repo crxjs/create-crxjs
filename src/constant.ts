@@ -1,14 +1,14 @@
 /* eslint-disable style/space-in-parens */
 /* eslint-disable style/no-multi-spaces */
 import type { Framework } from './types'
-import colors, { red } from 'picocolors'
-
-const {
+import {
   blue,
   cyan,
   green,
+  magenta,
+  red,
   yellow,
-} = colors
+} from 'picocolors'
 
 export const FRAMEWORKS: Framework[] = [
   {
@@ -42,6 +42,11 @@ export const FRAMEWORKS: Framework[] = [
         name: 'vue',
         display: 'JavaScript',
         color: yellow,
+      },
+      {
+        name: 'https://github.com/FliPPeDround/vitesse-crxjs',
+        display: 'Vitesse CRXJS (community)',
+        color: green,
       },
     ],
   },
@@ -117,4 +122,6 @@ ${yellow    ('vanilla-ts     vanilla'  )}
 ${green     ('vue-ts         vue'      )}
 ${cyan      ('react-ts       react'    )}
 ${blue      ('solid-ts       solid'    )}
-${red       ('svelte-ts      svelte'   )}`
+${red       ('svelte-ts      svelte'   )}
+${magenta('vitesse-crxjs')}
+`

@@ -74,6 +74,10 @@ export function pkgFromUserAgent(userAgent: string | undefined): PkgInfo | undef
   }
 }
 
+export function isGitHubUrl(url: string): boolean {
+  return /^https?:\/\/github\.com\/.+/.test(url)
+}
+
 export function generateBanner(text: string) {
   console.log()
   const supportsColor = () => {

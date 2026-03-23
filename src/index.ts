@@ -5,8 +5,10 @@ import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import * as prompts from '@clack/prompts'
+import { spinner } from '@clack/prompts'
 import mri from 'mri'
 import { dim, green } from 'picocolors'
+import { exec } from 'tinyexec'
 import { defaultTargetDir, renameFiles } from './config'
 import { FRAMEWORKS, HELP_MESSAGE, TEMPLATES } from './constant'
 import {
@@ -15,6 +17,7 @@ import {
   formatTargetDir,
   generateBanner,
   isEmpty,
+  isGitHubUrl,
   isValidPackageName,
   pkgFromUserAgent,
   toValidPackageName,
@@ -33,7 +36,7 @@ const argv = mri<{
 const cwd = process.cwd()
 
 async function init() {
-  prompts.intro(generateBanner('create-crxjs - quickly start a chrome extension'))
+  prompts.intro(generateBanner('create-crxjs - quickly start a browser extension'))
   const argTargetDir = argv._[0]
     ? formatTargetDir(String(argv._[0]))
     : undefined
@@ -161,36 +164,58 @@ async function init() {
 
   const pkgManager = pkgInfo ? pkgInfo.name : 'npm'
 
-  prompts.log.step(`Scaffolding project in ${root}...`)
+  const isGitHubTemplate = isGitHubUrl(template)
 
-  const templateDir = path.resolve(
-    fileURLToPath(import.meta.url),
-    '../..',
-    `templates/${template}`,
-  )
+  if (isGitHubTemplate) {
+    const s = spinner()
+    s.start(`Cloning from GitHub: ${template}`)
+    await exec('git', ['clone', '--quiet', '--depth', '1', template, root])
 
-  const write = (file: string, content?: string) => {
-    const targetPath = path.join(root, renameFiles[file] ?? file)
-    if (content) {
-      fs.writeFileSync(targetPath, content)
+    const gitDir = path.join(root, '.git')
+    if (fs.existsSync(gitDir)) {
+      fs.rmSync(gitDir, { recursive: true, force: true })
     }
-    else {
-      copy(path.join(templateDir, file), targetPath)
+
+    const pkgPath = path.join(root, 'package.json')
+    if (fs.existsSync(pkgPath)) {
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
+      pkg.name = packageName
+      fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
     }
+    s.stop('Cloning completed successfully')
   }
+  else {
+    prompts.log.step(`Scaffolding project in ${root}...`)
 
-  const files = fs.readdirSync(templateDir)
-  for (const file of files.filter(f => f !== 'package.json')) {
-    write(file)
+    const templateDir = path.resolve(
+      fileURLToPath(import.meta.url),
+      '../..',
+      `templates/${template}`,
+    )
+
+    const write = (file: string, content?: string) => {
+      const targetPath = path.join(root, renameFiles[file] ?? file)
+      if (content) {
+        fs.writeFileSync(targetPath, content)
+      }
+      else {
+        copy(path.join(templateDir, file), targetPath)
+      }
+    }
+
+    const files = fs.readdirSync(templateDir)
+    for (const file of files.filter(f => f !== 'package.json')) {
+      write(file)
+    }
+
+    const pkg = JSON.parse(
+      fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'),
+    )
+
+    pkg.name = packageName
+
+    write('package.json', `${JSON.stringify(pkg, null, 2)}\n`)
   }
-
-  const pkg = JSON.parse(
-    fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'),
-  )
-
-  pkg.name = packageName
-
-  write('package.json', `${JSON.stringify(pkg, null, 2)}\n`)
 
   let doneMessage = ''
   const cdProjectName = path.relative(cwd, root)

@@ -18,6 +18,8 @@ npm create crxjs@latest
 
 ## Templates
 
+### official templates
+
 |         JavaScript          |            TypeScript             |
 | :-------------------------: | :-------------------------------: |
 | [vanilla][vanilla-template] | [vanilla-ts][vanilla-ts-template] |
@@ -25,6 +27,13 @@ npm create crxjs@latest
 |     [vue][vue-template]     |     [vue-ts][vue-ts-template]     |
 |  [svelte][svelte-template]  |  [svelte-ts][svelte-ts-template]  |
 |   [solid][solid-template]   |   [solid-ts][solid-ts-template]   |
+
+### community templates
+
+> [!NOTE]
+> We welcome contributions from the community! [Submit your templates to `src/constant.ts`](src/constant.ts#L13)
+
+- [vitesse-crxjs](https://github.com/flippedround/vitesse-crxjs)
 
 ## Credits
 
