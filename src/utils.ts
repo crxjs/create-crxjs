@@ -23,6 +23,10 @@ export function isValidPackageName(projectName: string) {
   )
 }
 
+// Chrome webstore limit reference: https://developer.chrome.com/docs/extensions/reference/manifest#required-web-store
+export function isValidDescription(description: string): boolean {
+  return description.trim().length > 0 && description.length <= 132
+}
 export function toValidPackageName(projectName: string) {
   return projectName
     .trim()

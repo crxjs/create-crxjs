@@ -105,10 +105,17 @@ it('successfully scaffolds a project based on vue starter template', () => {
     cwd: __dirname,
   })
   const generatedFiles = fs.readdirSync(genPath).sort()
+  const generatedPackage = JSON.parse(
+    fs.readFileSync(path.join(genPath, 'package.json'), 'utf-8'),
+  )
 
   // Assertions
   expect(stdout).toContain(`Scaffolding project in ${genPath}`)
   expect(templateFiles).toEqual(generatedFiles)
+  expect(generatedPackage.name).toBe(projectName)
+  expect(generatedPackage.description).toBe(
+    'A browser extension built with CRXJS.',
+  )
 })
 
 it('successfully scaffolds a project with subfolder based on react starter template', () => {
@@ -116,10 +123,17 @@ it('successfully scaffolds a project with subfolder based on react starter templ
     cwd: __dirname,
   })
   const generatedFiles = fs.readdirSync(genPathWithSubfolder).sort()
+  const generatedPackage = JSON.parse(
+    fs.readFileSync(path.join(genPathWithSubfolder, 'package.json'), 'utf-8'),
+  )
 
   // Assertions
   expect(stdout).toContain(`Scaffolding project in ${genPathWithSubfolder}`)
   expect(templateFilesReact).toEqual(generatedFiles)
+  expect(generatedPackage.name).toBe(projectName)
+  expect(generatedPackage.description).toBe(
+    'A browser extension built with CRXJS.',
+  )
 })
 
 it('works with the -t alias', () => {

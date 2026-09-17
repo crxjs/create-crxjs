@@ -18,6 +18,7 @@ import {
   generateBanner,
   isEmpty,
   isGitHubUrl,
+  isValidDescription,
   isValidPackageName,
   pkgFromUserAgent,
   toValidPackageName,
@@ -120,6 +121,20 @@ async function init() {
     packageName = packageNameResult
   }
 
+  const packageDescriptionResult = await prompts.text({
+    message: 'Extension description (you can edit this anytime in package.json):',
+    defaultValue: 'A browser extension built with CRXJS.',
+    placeholder: 'A browser extension built with CRXJS.',
+    validate(description) {
+      if (!isValidDescription(description)) {
+        return 'Description must be non-blank and 132 characters or fewer'
+      }
+    },
+  })
+  if (prompts.isCancel(packageDescriptionResult))
+    return cancel()
+  const packageDescription = packageDescriptionResult
+
   // 4. Choose a framework and variant
   let template = argTemplate
   let hasInvalidArgTemplate = false
@@ -180,6 +195,7 @@ async function init() {
     if (fs.existsSync(pkgPath)) {
       const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
       pkg.name = packageName
+      pkg.description = packageDescription
       fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
     }
     s.stop('Cloning completed successfully')
@@ -213,6 +229,7 @@ async function init() {
     )
 
     pkg.name = packageName
+    pkg.description = packageDescription
 
     write('package.json', `${JSON.stringify(pkg, null, 2)}\n`)
   }
