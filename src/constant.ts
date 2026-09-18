@@ -116,6 +116,7 @@ With no arguments, start the CLI in interactive mode.
 
 Options:
   -t, --template NAME        use a specific template
+  -d, --description TEXT     extension description (max 132 characters)
 
 Available templates:
 ${yellow    ('vanilla-ts     vanilla'  )}
