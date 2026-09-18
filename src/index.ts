@@ -9,7 +9,7 @@ import { spinner } from '@clack/prompts'
 import mri from 'mri'
 import { dim, green } from 'picocolors'
 import { exec } from 'tinyexec'
-import { defaultTargetDir, renameFiles } from './config'
+import { defaultPackageDescription, defaultTargetDir, renameFiles } from './config'
 import { FRAMEWORKS, HELP_MESSAGE, TEMPLATES } from './constant'
 import {
   copy,
@@ -28,10 +28,11 @@ const argv = mri<{
   template?: string
   help?: boolean
   overwrite?: boolean
+  description?: string
 }>(process.argv.slice(2), {
-  alias: { h: 'help', t: 'template' },
+  alias: { h: 'help', t: 'template', d: 'description' },
   boolean: ['help', 'overwrite'],
-  string: ['template'],
+  string: ['template', 'description'],
 })
 
 const cwd = process.cwd()
@@ -43,6 +44,7 @@ async function init() {
     : undefined
   const argTemplate = argv.template
   const argOverwrite = argv.overwrite
+  const argDescription = argv.description
 
   const help = argv.help
   if (help) {
@@ -121,19 +123,34 @@ async function init() {
     packageName = packageNameResult
   }
 
-  const packageDescriptionResult = await prompts.text({
-    message: 'Extension description (you can edit this anytime in package.json):',
-    defaultValue: 'A browser extension built with CRXJS.',
-    placeholder: 'A browser extension built with CRXJS.',
-    validate(description) {
-      if (!isValidDescription(description)) {
-        return 'Description must be non-blank and 132 characters or fewer'
-      }
-    },
-  })
-  if (prompts.isCancel(packageDescriptionResult))
-    return cancel()
-  const packageDescription = packageDescriptionResult
+  // Keep `create-crxjs <dir> --template <name>` non-interactive, and skip this
+  // prompt in tests/CI where stdin is not a TTY.
+  let packageDescription = defaultPackageDescription
+  if (argDescription !== undefined) {
+    if (!isValidDescription(argDescription)) {
+      prompts.log.error('Description must be non-blank and 132 characters or fewer')
+      return
+    }
+    packageDescription = argDescription
+  }
+  else if (process.stdin.isTTY && !argTemplate) {
+    const packageDescriptionResult = await prompts.text({
+      message: 'Extension description (you can edit this anytime in package.json):',
+      defaultValue: defaultPackageDescription,
+      placeholder: defaultPackageDescription,
+      validate(description) {
+        // @clack/prompts applies defaultValue after validate; empty means accept default
+        if (!description)
+          return
+        if (!isValidDescription(description)) {
+          return 'Description must be non-blank and 132 characters or fewer'
+        }
+      },
+    })
+    if (prompts.isCancel(packageDescriptionResult))
+      return cancel()
+    packageDescription = packageDescriptionResult
+  }
 
   // 4. Choose a framework and variant
   let template = argTemplate

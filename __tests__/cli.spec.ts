@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { execaCommandSync } from 'execa'
 import { afterEach, beforeAll, expect, it } from 'vitest'
+import { defaultPackageDescription } from '../src/config'
 
 const CLI_PATH = path.join(__dirname, '..', 'dist', 'index.mjs')
 const TEMP_PATH = path.join(__dirname, '..')
@@ -113,9 +114,7 @@ it('successfully scaffolds a project based on vue starter template', () => {
   expect(stdout).toContain(`Scaffolding project in ${genPath}`)
   expect(templateFiles).toEqual(generatedFiles)
   expect(generatedPackage.name).toBe(projectName)
-  expect(generatedPackage.description).toBe(
-    'A browser extension built with CRXJS.',
-  )
+  expect(generatedPackage.description).toBe(defaultPackageDescription)
 })
 
 it('successfully scaffolds a project with subfolder based on react starter template', () => {
@@ -131,9 +130,42 @@ it('successfully scaffolds a project with subfolder based on react starter templ
   expect(stdout).toContain(`Scaffolding project in ${genPathWithSubfolder}`)
   expect(templateFilesReact).toEqual(generatedFiles)
   expect(generatedPackage.name).toBe(projectName)
-  expect(generatedPackage.description).toBe(
-    'A browser extension built with CRXJS.',
+  expect(generatedPackage.description).toBe(defaultPackageDescription)
+})
+
+it('uses a custom description from --description', () => {
+  const customDescription = 'My-custom-CRXJS-extension'
+  const { stdout } = run([
+    projectName,
+    '--template',
+    'vue',
+    '--description',
+    customDescription,
+  ], {
+    cwd: __dirname,
+  })
+  const generatedPackage = JSON.parse(
+    fs.readFileSync(path.join(genPath, 'package.json'), 'utf-8'),
   )
+
+  expect(stdout).toContain(`Scaffolding project in ${genPath}`)
+  expect(generatedPackage.description).toBe(customDescription)
+})
+
+it('rejects a --description longer than 132 characters', () => {
+  const { stdout } = run([
+    projectName,
+    '--template',
+    'vue',
+    '--description',
+    'a'.repeat(133),
+  ], {
+    cwd: __dirname,
+    reject: false,
+  })
+
+  expect(stdout).toContain('Description must be non-blank and 132 characters or fewer')
+  expect(fs.existsSync(genPath)).toBe(false)
 })
 
 it('works with the -t alias', () => {
